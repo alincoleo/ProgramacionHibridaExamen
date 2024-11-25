@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>Publicación</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/home']" >
+        <ion-icon name="home-outline"></ion-icon>
+      </ion-button>
+      <ion-button [routerLink]="['/formulario']" >
+        <ion-icon name="create-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <app-publicacion-form></app-publicacion-form>
+</ion-content>

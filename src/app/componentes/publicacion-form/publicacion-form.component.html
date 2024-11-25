@@ -1,0 +1,36 @@
+<ion-card color="light">
+  <ion-card-header>
+    <ion-card-title>Agregar publicacion</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+  <ion-list [inset]="true" lines="none">
+    <ion-item>
+      <ion-input [(ngModel)]="titulo" 
+      required="required"
+      minlength="5"
+     #tituloInput="ngModel"
+      label="Titulo" placeholder="Mascota perdida" type="text"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!tituloInput.valid && !tituloInput.pristine">
+      <ion-text color="tertiary">Ingrese un título de al menos 5 caracteres</ion-text>
+    </ion-item>
+    <ion-button color="medium" (click)="takePicture()">
+      <ion-icon name="camera-outline"></ion-icon>
+      Fotografía
+      <!-- [] implica ingresa typescript, fuerza la img a jpg y le asigna base 64-->
+      <ion-img [src]="'data:image/jpg;base64, '+foto"/>
+    </ion-button>
+    <ion-item>
+      <ion-input [(ngModel)]="descripcion" 
+      required="required"
+      minlength="20"
+     #descripcionInput="ngModel"
+      label="Descripcion" placeholder="Perrito salchicha perdido..." type="text"></ion-input> 
+    </ion-item>
+    <ion-item *ngIf="!descripcionInput.valid && !descripcionInput.pristine">
+      <ion-text color="tertiary">Ingrese una descripcion con mínimo de 20 caracteres</ion-text>
+    </ion-item>
+  </ion-list>
+  <ion-button (click)="guardarFormulario()" fill="solid">GUARDAR</ion-button>
+</ion-card-content>
+</ion-card>

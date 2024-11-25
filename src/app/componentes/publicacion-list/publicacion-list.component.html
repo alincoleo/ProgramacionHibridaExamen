@@ -1,0 +1,23 @@
+<ion-list>
+  <!-- dummy de practica -->
+   <!-- <ion-item>
+    <ion-img src="/assets/Dobermann.jpg"></ion-img>
+    <ion-label>
+      <strong>titulo</strong>
+      <ion-note>fecha</ion-note>
+    </ion-label>
+    <ion-button slot="end" (click)="refrescarListado()" fill="clear">
+      <ion-icon name="trash-outline"></ion-icon>
+    </ion-button>
+   </ion-item> -->
+  <ion-item *ngFor="let publicacion of publicaciones" lines="none">
+    <ion-img [src]="'data:image/jpg;base64, '+publicacion.imagen"/>
+    <ion-label >
+      <strong >{{publicacion.titulo}}</strong>
+      <ion-note color="medium" >{{publicacion.fecha | date:'short'}}</ion-note>
+    </ion-label>
+    <ion-button slot="end" (click)="onDelete(publicacion)" fill="clear">
+      <ion-icon name="trash-outline"></ion-icon>
+    </ion-button>
+  </ion-item> 
+</ion-list>
